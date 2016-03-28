@@ -1,0 +1,20 @@
+States Trump has won:
+
+States Cruz has won:
+
+Iowa
+  
+Iowa:
+  Total respondents: 1794
+  Gender: Men 52%, Women 48%
+    Bush: 2%, 3%
+    Carson: 8%, 11%
+    Christie: 2%, 2%
+    Cruz: 29%, 27%
+    Fiorina: 1%, 2%
+    Huckabee: 2%, 2%
+    Kasich: 2%, 2%
+    Paul: 5%, 5%
+    Rubio: 25%, 21%
+    Santorum: 1%, 1%
+    Trump: 25%, 24%

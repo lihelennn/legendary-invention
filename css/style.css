@@ -1,3 +1,14 @@
+.dropdown{
+    text-align: center;
+    padding: 15px;
+}
+
+.radio{
+    text-align: center;
+    padding: 15px;
+}
+
+
 .chart div {
         font: 12px sans-serif;
         text-align: right;
@@ -5,3 +16,23 @@
         margin: 2.5px;
         color: white;
 }
+
+h1{
+    text-align:center;
+}
+
+.left{
+    float: left;
+    width: 650px;
+    border: 3px solid red;
+    padding: 10px;
+}
+
+.right{
+    float: right;
+    width: 650px;
+    border: 3px solid blue;
+    padding: 10px;
+}
+
+
