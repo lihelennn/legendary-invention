@@ -6,8 +6,44 @@
   </head>
 
   <body>
-    <div class="chart"></div>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="index.js"></script>
+    <h1>2016 Primary Results Breakdown</h1>
+
+    <!--DROPDOWN MENU-->
+    <div class="dropdown">
+      <form action="GET">
+	<select name="states">
+	  <option value="New York">New York</option>
+	  <option value="Massachusetts">Massachusetts</option>
+	  <option value="Iowa">Iowa</option>
+	</select>
+      </form>
+    </div>
+    
+    <!--RADIO BUTTONS-->
+    <div class="radio">
+      <form action="GET">
+	<input type="radio" name="data" value="Gender">Gender
+	<input type="radio" name="data" value="Salary">Salary
+      </form>
+    </div>
+
+
+    <!--DEMOCRATS ON THE LEFT-->
+    <div class="left">
+      <div class="chart"></div>
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <script src="index.js"></script>
+
+
+    </div>
+
+
+
+    <!--REPUBLICANS ON THE RIGHT-->
+    <div class="right">
+    </div>
+
+
+
   </body>
 </html>
