@@ -1,4 +1,4 @@
-var data = [ {state: "Iowa", respondents: 1660, men: "43%", women: "57%", menC: 44, womenC: 53, menS: 50, womenS: 42,  under: "41%", over: "59%", underC: 44, overC: 52, underS: 53, overS: 42, winner: "Clinton" },
+var dem_data = [ {state: "Iowa", respondents: 1660, men: "43%", women: "57%", menC: 44, womenC: 53, menS: 50, womenS: 42,  under: "41%", over: "59%", underC: 44, overC: 52, underS: 53, overS: 42, winner: "Clinton" },
        	 {state: "New Hampshire", respondents: 2222, men: "45%", women: "55%", menC: 32, womenC: 44, menS: 67, womenS: 55, under: "31%", over: "69%", underC: 32, overC: 44, underS: 65, overS: 58, winner: "Sanders" },
 	 {state: "Nevada", respondents: 1024, men: "44%", women: "56%", menC: 44, womenC: 57, menS: 53, womenS: 41, under: "48%", over: "52%", underC: 50, overC: 51, underS: 48, overS: 45 , winner: "Clinton"},
 	 {state: "South Carolina", respondents: 1261, men: "39%", women: "61%", menC: 68, womenC: 79, menS: 32, womenS: 21, under: "61%", over: "39%", underC: 76, overC: 68, underS: 23, overS: 32, winner: "Clinton" },
@@ -11,8 +11,3 @@ var data = [ {state: "Iowa", respondents: 1660, men: "43%", women: "57%", menC: 
 var Hillary = ["Iowa", "Nevada", "South Carolina", "Alabama", "Arkansas", "Georgia", "Massachusetts", "Tennessee", "Texas", "Virginia", "Louisiana", "Mississippi", "Florida", "Illinois", "Missouri", "North Carolina", "Ohio", "Arizona"];
 
 var Sanders = ["New Hampshire", "Colorado", "Minnesota", "Oklahoma", "Vermont", "Kansas", "Nebraska", "Maine", "Michigan", "Idaho", "Utah", "Alaska", "Hawaii", "Washington"];
-
-var chart = d3.select(".chart");
-var bar = chart.selectAll("div");
-var barUpdate = bar.data(data);
-var barEnter = barUpdate.enter().append("div");
