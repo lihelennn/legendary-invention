@@ -1,31 +1,18 @@
+var data = [ {state: "Iowa", respondents: 1660, men: "43%", women: "57%", menC: 44, womenC: 53, menS: 50, womenS: 42,  under: "41%", over: "59%", underC: 44, overC: 52, underS: 53, overS: 42, winner: "Clinton" },
+       	 {state: "New Hampshire", respondents: 2222, men: "45%", women: "55%", menC: 32, womenC: 44, menS: 67, womenS: 55, under: "31%", over: "69%", underC: 32, overC: 44, underS: 65, overS: 58, winner: "Sanders" },
+	 {state: "Nevada", respondents: 1024, men: "44%", women: "56%", menC: 44, womenC: 57, menS: 53, womenS: 41, under: "48%", over: "52%", underC: 50, overC: 51, underS: 48, overS: 45 , winner: "Clinton"},
+	 {state: "South Carolina", respondents: 1261, men: "39%", women: "61%", menC: 68, womenC: 79, menS: 32, womenS: 21, under: "61%", over: "39%", underC: 76, overC: 68, underS: 23, overS: 32, winner: "Clinton" },
+	 {state: "Alabama", respondents: 865, men: "40%", women: "60%", menC: 73, womenC: 80, menS: 24, womenS: 17, under: "55%", over: "45%", underC: 80, overC: 76, underS: 17, overS: 23, winner: "Clinton" },
+	 {state: "Arkansas", respondents: 944, men: "43%", women: "57%", menC: 60, womenC: 76, menS: 37, womenS: 23, under: "51%", over: "49%", underC: 69, overC: 69, underS: 29, overS: 29, winner: "Clinton" },
+	 {state: "Georgia", respondents: 1491, men: "38%", women: "62%", menC: 66, womenC: 576, menS: 33, womenS: 23, under: "43%", over: "57%", underC: 70, overC: 72, underS: 29, overS: 28, winner: "Clinton" },
+	 {state: "Massachusetts", respondents: 1406, men: "42%", women: "58%", menC: 41, womenC: 57, menS: 58, womenS: 42, under: "31%", over: "69%", underC: 43, overC: 53, underS: 56, overS: 46, winner: "Clinton" },
+	 {state: "Oklahoma", respondents: 821, men: "46%", women: "54%", menC: 33, womenC: 48, menS: 60, womenS: 46, under: "44%", over: "56%", underC: 41, overC: 51, underS: 54, overS: 51, winner: "Sanders" }, ];
+
 var Hillary = ["Iowa", "Nevada", "South Carolina", "Alabama", "Arkansas", "Georgia", "Massachusetts", "Tennessee", "Texas", "Virginia", "Louisiana", "Mississippi", "Florida", "Illinois", "Missouri", "North Carolina", "Ohio", "Arizona"];
 
 var Sanders = ["New Hampshire", "Colorado", "Minnesota", "Oklahoma", "Vermont", "Kansas", "Nebraska", "Maine", "Michigan", "Idaho", "Utah", "Alaska", "Hawaii", "Washington"];
-
-var data = [1660, 2222, 1024, 1261, 865, 944, 1491, 1406, 821];
-
-var men = [43, 45, 44, 39, 40, 43, 38, 42, 46];
-
-var women = [57, 55, 56, 61, 60, 57, 62, 58, 54];
-
-var menC = [44, 32, 44, 68, 73, 60, 66, 41, 33];
-var womenC = [53, 44, 57, 79, 80, 76, 76, 57, 48];
-
-var menS = [50, 67, 53, 32, 24, 37, 33, 58, 60];
-var womenC = [42, 55, 41, 21, 17, 23, 23, 42, 46];
-
-var states = ["Iowa", "New Hampshire", "Nevada", "South Carolina", "Alabama", "Arkansas", "Georgia", "Massachusetts", "Oklahoma"];
 
 var chart = d3.select(".chart");
 var bar = chart.selectAll("div");
 var barUpdate = bar.data(data);
 var barEnter = barUpdate.enter().append("div");
-
-barEnter.style("width", function(d,i) {
-    return Math.round(d * ( men[i]/100) * (menS[i]/100)) + "px"; });
-
-barEnter.style("background-color", function(d) {
-    if (d >= 0)
-	return "steelblue";
-    else
-	return "grey"; });
