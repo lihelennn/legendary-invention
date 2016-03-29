@@ -11,3 +11,23 @@ var dem_data = [ {state: "Iowa", respondents: 1660, men: "43%", women: "57%", me
 var Hillary = ["Iowa", "Nevada", "South Carolina", "Alabama", "Arkansas", "Georgia", "Massachusetts", "Tennessee", "Texas", "Virginia", "Louisiana", "Mississippi", "Florida", "Illinois", "Missouri", "North Carolina", "Ohio", "Arizona"];
 
 var Sanders = ["New Hampshire", "Colorado", "Minnesota", "Oklahoma", "Vermont", "Kansas", "Nebraska", "Maine", "Michigan", "Idaho", "Utah", "Alaska", "Hawaii", "Washington"];
+
+
+function go(){
+    //WHAT STATE IS SELECTED?
+    var stateElement = document.getElementById("states");
+    var state = stateElement.options[stateElement.selectedIndex].value;
+
+    //WHAT CATEGORY IS SELECTED?
+    var category;
+    var radios = document.getElementsByName("radioData");
+    for (i=0; i<radios.length; i++){
+	if(radios[i].checked){
+	    category = radios[i].value;
+	    break;
+	}
+    }
+    console.log(state + " , " + category);
+}
+
+

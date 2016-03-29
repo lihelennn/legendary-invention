@@ -1,11 +1,11 @@
 .dropdown{
     text-align: center;
-    padding: 15px;
+    padding: 10px;
 }
 
 .radio{
     text-align: center;
-    padding: 15px;
+    padding: 10px;
 }
 
 
@@ -15,6 +15,11 @@
         padding: 7px;
         margin: 2.5px;
         color: white;
+}
+
+.go{
+    text-align: center;
+    padding: 15px;
 }
 
 h1{

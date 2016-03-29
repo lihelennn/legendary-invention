@@ -11,7 +11,7 @@
     <!--DROPDOWN MENU-->
     <div class="dropdown">
       <form action="GET">
-	<select name="states">
+	<select id="states" name="states">
 	  <option value="Iowa">Iowa</option>
 	  <option value="New Hampshire">New Hampshire</option>
 	  <option value="Nevada">Nevada</option>
@@ -28,9 +28,13 @@
     <!--RADIO BUTTONS-->
     <div class="radio">
       <form action="GET">
-	<input type="radio" name="data" value="Gender">Gender
-	<input type="radio" name="data" value="Income">Income
+	<input type="radio" id="r1" name="radioData" checked="checked" value="Gender">Gender
+	<input type="radio" id="r2" name="radioData" value="Income">Income
       </form>
+    </div>
+
+    <div class="go">
+      <input type="button" onclick="go()" value="Show Results"><br><br>
     </div>
 
 
