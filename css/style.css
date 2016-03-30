@@ -18,6 +18,15 @@
 	background-color: blue;
 }
 
+.chartRep div {
+        font: 12px sans-serif;
+        text-align: right;
+        padding: 7px;
+        margin: 2.5px;
+        color: white;
+	background-color: red;
+}
+
 .go{
     text-align: center;
     padding: 15px;

@@ -184,20 +184,20 @@ var Hillary = ["Iowa", "Nevada", "South Carolina", "Alabama", "Arkansas", "Georg
 
 var Sanders = ["New Hampshire", "Colorado", "Minnesota", "Oklahoma", "Vermont", "Kansas", "Nebraska", "Maine", "Michigan", "Idaho", "Utah", "Alaska", "Hawaii", "Washington"];
 
-//var state = "Iowa"
-//var category = "Gender";
+var state = "Iowa"
+var category = "Gender";
 var data;
 var dataCategory = [];
 var dataCategory2 = [];
 var infoArray = [];
+var infoArrayR = [];
 
-function getData(){
+function getDataDemocrats(){
     //WHAT STATE IS SELECTED?
-    var stateElement = document.getElementById("states");
-    var state = stateElement.options[stateElement.selectedIndex].value;
+    stateElement = document.getElementById("states");
+    state = stateElement.options[stateElement.selectedIndex].value;
 
     //WHAT CATEGORY IS SELECTED?
-    var category;
     var radios = document.getElementsByName("radioData");
     for (i=0; i<radios.length; i++){
 	if(radios[i].checked){
@@ -229,12 +229,12 @@ function getData(){
 	dataCategory.push(data["women"]);
 	dataCategory.push(data["womenC"]);
 	dataCategory.push(data["womenS"]);
-	dataCategory2.push("men: " + dataCategory[0]);
-	dataCategory2.push("menC: " + dataCategory[1]);
-	dataCategory2.push("menS: " + dataCategory[2]);
-	dataCategory2.push("women: " + dataCategory[3]);
-	dataCategory2.push("womenC: " + dataCategory[4]);
-	dataCategory2.push("womenS: " + dataCategory[5]);
+	dataCategory2.push("% Of People Who Are Men: " + dataCategory[0]);
+	dataCategory2.push("Men - Clinton: " + dataCategory[1]);
+	dataCategory2.push("Men - Sanders: " + dataCategory[2]);
+	dataCategory2.push("% Of People Who Are Women: " + dataCategory[3]);
+	dataCategory2.push("Women - Clinton: " + dataCategory[4]);
+	dataCategory2.push("Women - Sanders: " + dataCategory[5]);
     }else{
 	infoArray[3] = "College Grads: " + data["grad"];
 	infoArray[4] = "Non-College Grads: " + data["nograd"];
@@ -244,14 +244,88 @@ function getData(){
 	dataCategory.push(data["nograd"]);
 	dataCategory.push(data["nogradC"]);
 	dataCategory.push(data["nogradS"]);
-	dataCategory2.push("grad: " + dataCategory[0]);
-	dataCategory2.push("gradC: " + dataCategory[1]);
-	dataCategory2.push("gradS: " + dataCategory[2]);
-	dataCategory2.push("nograd: " + dataCategory[3]);
-	dataCategory2.push("gradC: " + dataCategory[4]);
-	dataCategory2.push("gradS: " + dataCategory[5]);
+	dataCategory2.push("% Of People Who Graduated: " + dataCategory[0]);
+	dataCategory2.push("Graduated - Clinton: " + dataCategory[1]);
+	dataCategory2.push("Graduated - Sanders: " + dataCategory[2]);
+	dataCategory2.push("% Of People Who Did Not Graduate: " + dataCategory[3]);
+	dataCategory2.push("Not Graduated - Clinton: " + dataCategory[4]);
+	dataCategory2.push("Npt Graduated - Sanders: " + dataCategory[5]);
     }
 }
+
+
+
+
+
+
+function getDataRepublicans(){
+  
+    //GET THE DATA FOR THE CORRESPONDING STATE
+    for (i=0; i<rep_data.length; i++){
+	if (dem_data[i]["state"] == state){
+	    data = rep_data[i];
+	    console.log(data);
+	}
+    }
+    console.log(state);
+    
+    infoArrayR[0] = "State: " + state;
+    infoArrayR[1] = "Number of Respondents: " + data["respondents"];
+    infoArrayR[2] = "Winner: " + data["winner"];
+    
+    dataCategory = [];
+    dataCategory2 = [];
+
+    if(category == "Gender"){
+	infoArrayR[3] = "Men: " + data["men"];
+	infoArrayR[4] = "Women: " + data["women"];
+	dataCategory.push(data["men"]);
+	dataCategory.push(data["menC"]);
+	dataCategory.push(data["menK"]);
+	dataCategory.push(data["menR"]);
+	dataCategory.push(data["menT"]);
+	dataCategory.push(data["women"]);
+	dataCategory.push(data["womenC"]);
+	dataCategory.push(data["womenK"]);
+	dataCategory.push(data["womenR"]);
+	dataCategory.push(data["womenT"]);
+	dataCategory2.push("% Of People Who Are Men: " + dataCategory[0]);
+	dataCategory2.push("Men - Cruz: " + dataCategory[1]);
+	dataCategory2.push("Men - Kasich: " + dataCategory[2]);
+	dataCategory2.push("Men - Rubio: " + dataCategory[3]);
+	dataCategory2.push("Men - Trump: " + dataCategory[4]);
+	dataCategory2.push("% Of People Who Are Women: " + dataCategory[5]);
+	dataCategory2.push("Women - Cruz: " + dataCategory[6]);
+	dataCategory2.push("Women - Kasich: " + dataCategory[7]);
+	dataCategory2.push("Women - Rubio: " + dataCategory[8]);
+	dataCategory2.push("Women - Trump: " + dataCategory[9]);
+    }else{
+	infoArrayR[3] = "College Grads: " + data["grad"];
+	infoArrayR[4] = "Non-College Grads: " + data["nograd"];
+	dataCategory.push(data["grad"]);
+	dataCategory.push(data["gradC"]);
+	dataCategory.push(data["gradK"]);
+	dataCategory.push(data["gradR"]);
+	dataCategory.push(data["gradT"]);
+	dataCategory.push(data["nograd"]);
+	dataCategory.push(data["nogradC"]);
+	dataCategory.push(data["nogradK"]);
+	dataCategory.push(data["nogradR"]);
+	dataCategory.push(data["nogradT"]);
+	dataCategory2.push("% Of People Who Graduated: " + dataCategory[0]);
+	dataCategory2.push("Graduated - Cruz: " + dataCategory[1]);
+	dataCategory2.push("Graduated - Kasich: " + dataCategory[2]);
+	dataCategory2.push("Graduated - Rubio: " + dataCategory[3]);
+	dataCategory2.push("Graduated -  Trump: " + dataCategory[4]);
+	dataCategory2.push("% Of People Who Did Not Graduate: " + dataCategory[5]);
+	dataCategory2.push("Not graduated - Cruz: " + dataCategory[6]);
+	dataCategory2.push("Not Graduated - Kasich: " + dataCategory[7]);
+	dataCategory2.push("Not Graduated - Rubio: " + dataCategory[8]);
+	dataCategory2.push("Not Graduated - Trump: " + dataCategory[9]);
+    }
+}
+
+
 
 function go(){
 
@@ -273,7 +347,7 @@ function go(){
 
     
     
-    getData();
+    getDataDemocrats();
     var infoDem = d3.select(".infoDem");
     var info = infoDem.selectAll("h3");
     var infoUpdate = info.data(infoArray);
@@ -291,6 +365,27 @@ function go(){
     barUpdate = bar.data(dataCategory2);
     console.log(dataCategory2);
     barEnter.text(function(d){
+	return d;
+    });
+
+    getDataRepublicans();
+    var infoRep = d3.select(".infoRep");
+    var infoRep = infoRep.selectAll("h3");
+    var infoUpdateRep = infoRep.data(infoArrayR);
+    var infoEnterRep = infoUpdateRep.enter().append("h3");
+    infoEnterRep.text(function(d){
+	return d;
+    });
+
+    var chartRep = d3.select(".chartRep");
+    var barRep = chartRep.selectAll("div");
+    var barUpdateRep = barRep.data(dataCategory);
+    var barEnterRep = barUpdateRep.enter().append("div");
+    barEnterRep.style("width",function(d){return d*2.5+"px";});
+    barRep = chartRep.selectAll("div");
+    barUpdateRep = barRep.data(dataCategory2);
+    console.log(dataCategory2);
+    barEnterRep.text(function(d){
 	return d;
     });
 
