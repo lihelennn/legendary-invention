@@ -75,6 +75,9 @@ var Hillary = ["Iowa", "Nevada", "South Carolina", "Alabama", "Arkansas", "Georg
 
 var Sanders = ["New Hampshire", "Colorado", "Minnesota", "Oklahoma", "Vermont", "Kansas", "Nebraska", "Maine", "Michigan", "Idaho", "Utah", "Alaska", "Hawaii", "Washington"];
 
+var state = "Iowa"
+var category = "Gender";
+var data, dataCategory;
 
 function go(){
     //WHAT STATE IS SELECTED?
@@ -91,6 +94,37 @@ function go(){
 	}
     }
     console.log(state + " , " + category);
+
+    //GET THE DATA FOR THE CORRESPONDING STATE
+    for (i=0; i<dem_data.length; i++){
+	if (dem_data[i]["state"] == state){
+	    data = dem_data[i];
+	    console.log(data);
+	}
+    }
+
+    if(category == "Gender"){
+	dataCategory.push(data["men"]);
+	dataCategory.push(data["menC"]);
+	dataCategory.push(data["menS"]);
+	dataCategory.push(data["women"]);
+	dataCategory.push(data["womenC"]);
+	dataCategory.push(data["womenS"]);
+    }else{
+	dataCateogry.push(data["grad"]);
+	dataCateogry.push(data["gradC"]);
+	dataCateogry.push(data["gradS"]);
+	dataCateogry.push(data["nograd"]);
+	dataCateogry.push(data["nogradC"]);
+	dataCateogry.push(data["nogradS"]);
+    }
+
+    var chartDem = d3.select(".chartDem");
+    var bar = chartDem.selectAll("div");
+    var barUpdate = bar.data();
+
+
+
+
+
 }
-
-
