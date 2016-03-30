@@ -254,10 +254,6 @@ function getDataDemocrats(){
 }
 
 
-
-
-
-
 function getDataRepublicans(){
   
     //GET THE DATA FOR THE CORRESPONDING STATE
@@ -328,12 +324,19 @@ function getDataRepublicans(){
 
 
 function go(){
-
+//location.reload();
 /*
     d3.select(".charDem").transition().each("end",function(){
-	d3.select(this).remove();
-    });
-    d3.select(".infoDem").transition().each("end",function(){
+	var infoDem = d3.select(this);
+	var info = infoDem.selectAll("h3");
+	var infoUpdate = undo.data(infoArray);
+	infoDem.text(function(d){
+	    return d;
+	})});
+
+    
+
+d3.select(".infoDem").transition().each("end",function(){
 	d3.select(this).remove();
 	
     });
@@ -343,11 +346,12 @@ function go(){
     var clearEnter = clearUpdate.enter().append("div")
     clearEnter.attr("class",function(d){return d;});
 
-*/
 
-    
+
+    */
     
     getDataDemocrats();
+
     var infoDem = d3.select(".infoDem");
     var info = infoDem.selectAll("h3");
     var infoUpdate = info.data(infoArray);
@@ -369,6 +373,7 @@ function go(){
     });
 
     getDataRepublicans();
+
     var infoRep = d3.select(".infoRep");
     var infoRep = infoRep.selectAll("h3");
     var infoUpdateRep = infoRep.data(infoArrayR);
