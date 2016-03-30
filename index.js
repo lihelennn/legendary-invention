@@ -82,8 +82,7 @@ var dataCategory = [];
 var dataCategory2 = [];
 var infoArray = [];
 
-function go(){
-
+function getData(){
     //WHAT STATE IS SELECTED?
     var stateElement = document.getElementById("states");
     var state = stateElement.options[stateElement.selectedIndex].value;
@@ -139,20 +138,28 @@ function go(){
 	dataCategory2.push("gradC: " + dataCategory[4]);
 	dataCategory2.push("gradS: " + dataCategory[5]);
     }
+}
+
+function go(){
 
 /*
-  //TRANSITIONS
-    d3.select(".chartDem").transition().each("end",function(){
+    d3.select(".charDem").transition().each("end",function(){
 	d3.select(this).remove();
     });
     d3.select(".infoDem").transition().each("end",function(){
 	d3.select(this).remove();
+	
     });
-    d3.select(".left").selectAll("div").data(data).enter().append("div").attr("class","infoDem");
-    d3.select(".left").selectAll("div").data(data).enter().append("div").attr("class","chartDem");
+    var clearHelp = d3.select(".left");
+    var clear = clearHelp.selectAll("div");
+    var clearUpdate = clear.data(["chartDem","infoDem"]);
+    var clearEnter = clearUpdate.enter().append("div")
+    clearEnter.attr("class",function(d){return d;});
 
-    */
+*/
 
+    
+    getData();
     var infoDem = d3.select(".infoDem");
     var info = infoDem.selectAll("h3");
     var infoUpdate = info.data(infoArray);
@@ -172,10 +179,26 @@ function go(){
     barEnter.text(function(d){
 	return d;
     });
-
 }
 
 
+/*
 
-
-
+function go(){
+    alert("yo");
+    //TRANSITIONS
+    d3.select(".chartDem").transition()
+	.selectAll("div")
+	.data(dataCategory)
+	.style("width",function(d){return d*2.5+"px";})
+	.selectAll("div")
+	.data(dataCategory2)
+	.text(function(d){return d;});
+    
+    d3.select(".infoDem").transition()
+	.selectAll("div")
+	.data(infoArray)
+	.text(function(f){return d;});
+    
+}
+*/
