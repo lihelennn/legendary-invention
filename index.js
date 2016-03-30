@@ -77,9 +77,13 @@ var Sanders = ["New Hampshire", "Colorado", "Minnesota", "Oklahoma", "Vermont", 
 
 var state = "Iowa"
 var category = "Gender";
-var data, dataCategory;
+var data;
+var dataCategory = [];
+var dataCategory2 = [];
+var infoArray = [];
 
 function go(){
+
     //WHAT STATE IS SELECTED?
     var stateElement = document.getElementById("states");
     var state = stateElement.options[stateElement.selectedIndex].value;
@@ -102,6 +106,11 @@ function go(){
 	    console.log(data);
 	}
     }
+    console.log(state);
+    
+    infoArray[0] = "State: " + state;
+    infoArray[1] = "Number of Respondents: " + data["respondents"];
+    infoArray[2] = "Winner: " + data["winner"];
 
     if(category == "Gender"){
 	dataCategory.push(data["men"]);
@@ -110,21 +119,63 @@ function go(){
 	dataCategory.push(data["women"]);
 	dataCategory.push(data["womenC"]);
 	dataCategory.push(data["womenS"]);
+	dataCategory2.push("men: " + dataCategory[0]);
+	dataCategory2.push("menC: " + dataCategory[1]);
+	dataCategory2.push("menS: " + dataCategory[2]);
+	dataCategory2.push("women: " + dataCategory[3]);
+	dataCategory2.push("womenC: " + dataCategory[4]);
+	dataCategory2.push("womenS: " + dataCategory[5]);
     }else{
-	dataCateogry.push(data["grad"]);
-	dataCateogry.push(data["gradC"]);
-	dataCateogry.push(data["gradS"]);
-	dataCateogry.push(data["nograd"]);
-	dataCateogry.push(data["nogradC"]);
-	dataCateogry.push(data["nogradS"]);
+	dataCategory.push(data["grad"]);
+	dataCategory.push(data["gradC"]);
+	dataCategory.push(data["gradS"]);
+	dataCategory.push(data["nograd"]);
+	dataCategory.push(data["nogradC"]);
+	dataCategory.push(data["nogradS"]);
+	dataCategory2.push("grad: " + dataCategory[0]);
+	dataCategory2.push("gradC: " + dataCategory[1]);
+	dataCategory2.push("gradS: " + dataCategory[2]);
+	dataCategory2.push("nograd: " + dataCategory[3]);
+	dataCategory2.push("gradC: " + dataCategory[4]);
+	dataCategory2.push("gradS: " + dataCategory[5]);
     }
+
+/*
+  //TRANSITIONS
+    d3.select(".chartDem").transition().each("end",function(){
+	d3.select(this).remove();
+    });
+    d3.select(".infoDem").transition().each("end",function(){
+	d3.select(this).remove();
+    });
+    d3.select(".left").selectAll("div").data(data).enter().append("div").attr("class","infoDem");
+    d3.select(".left").selectAll("div").data(data).enter().append("div").attr("class","chartDem");
+
+    */
+
+    var infoDem = d3.select(".infoDem");
+    var info = infoDem.selectAll("h3");
+    var infoUpdate = info.data(infoArray);
+    var infoEnter = infoUpdate.enter().append("h3");
+    infoEnter.text(function(d){
+	return d;
+    });
 
     var chartDem = d3.select(".chartDem");
     var bar = chartDem.selectAll("div");
-    var barUpdate = bar.data();
-
-
-
-
+    var barUpdate = bar.data(dataCategory);
+    var barEnter = barUpdate.enter().append("div");
+    barEnter.style("width",function(d){return d*2.5+"px";});
+    bar = chartDem.selectAll("div");
+    barUpdate = bar.data(dataCategory2);
+    console.log(dataCategory2);
+    barEnter.text(function(d){
+	return d;
+    });
 
 }
+
+
+
+
+
